@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\BusinessLayer.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\BusinessLayer.deps.json" />
+    <Content Include="obj\BusinessLayer.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net6.0\BusinessLayer.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\BusinessLayer.dll" />
+    <None Include="bin\Debug\net6.0\BusinessLayer.pdb" />
+    <None Include="bin\Debug\net6.0\DataLayer.dll" />
+    <None Include="bin\Debug\net6.0\DataLayer.pdb" />
+    <None Include="bin\Debug\net6.0\Entities.dll" />
+    <None Include="bin\Debug\net6.0\Entities.pdb" />
+    <None Include="BusinessLayer.csproj" />
+    <None Include="obj\BusinessLayer.csproj.nuget.g.props" />
+    <None Include="obj\BusinessLayer.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.assets.cache" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.csproj.CopyComplete" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.dll" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\BusinessLayer.pdb" />
+    <None Include="obj\Debug\net6.0\refint\BusinessLayer.dll" />
+    <None Include="obj\Debug\net6.0\ref\BusinessLayer.dll" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+    <PackageReference Include="zxcvbn-core" Version="7.0.92" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
+</Project>

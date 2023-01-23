@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\DTO.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\DTO.deps.json" />
+    <Content Include="obj\Debug\net6.0\DTO.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\DTO.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\DTO.dll" />
+    <None Include="bin\Debug\net6.0\DTO.pdb" />
+    <None Include="DTO.csproj" />
+    <None Include="obj\Debug\net6.0\DTO.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\DTO.assets.cache" />
+    <None Include="obj\Debug\net6.0\DTO.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\DTO.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net6.0\DTO.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\DTO.dll" />
+    <None Include="obj\Debug\net6.0\DTO.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\DTO.pdb" />
+    <None Include="obj\Debug\net6.0\refint\DTO.dll" />
+    <None Include="obj\Debug\net6.0\ref\DTO.dll" />
+    <None Include="obj\DTO.csproj.nuget.g.props" />
+    <None Include="obj\DTO.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

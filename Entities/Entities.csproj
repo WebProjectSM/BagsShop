@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\Entities.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\Entities.deps.json" />
+    <Content Include="obj\Debug\net6.0\Entities.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Entities.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\Entities.dll" />
+    <None Include="bin\Debug\net6.0\Entities.pdb" />
+    <None Include="Entities.csproj" />
+    <None Include="obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\Entities.assets.cache" />
+    <None Include="obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\Entities.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net6.0\Entities.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\Entities.dll" />
+    <None Include="obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\Entities.pdb" />
+    <None Include="obj\Debug\net6.0\refint\Entities.dll" />
+    <None Include="obj\Debug\net6.0\ref\Entities.dll" />
+    <None Include="obj\Entities.csproj.nuget.g.props" />
+    <None Include="obj\Entities.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
