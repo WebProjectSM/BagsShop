@@ -75,7 +75,7 @@ function saveBaskate()
 function placeOrder() {
     var user = sessionStorage.getItem("currentUser");
     if (!user)
-       window.location.href = "Login.html";
+       window.location.href = "loginAndSign.html";
     
     else {   
         userId = user['userId']
