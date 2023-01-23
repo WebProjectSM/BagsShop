@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="product.js"></script>
-    <link href="product.css" rel="stylesheet" />
+    <script src="/js/product.js"></script>
+    <link href="/css/product.css" rel="stylesheet" />
 
     <meta charset="utf-8" />
     <title></title>
     <template id="temp-card">
         <div class="card">
             <div class="img-w">
-                <img src="images/tmp.png" alt="" style="width:100%">
+                <img src="../images/1.png" alt="" style="width:100%">
             </div>
             <h1></h1>
+            <h3></h3>
             <p class="price"></p>
             <p class="description"></p>
             <p><button>הוסף לסל</button></p>
@@ -49,7 +50,7 @@
             </section>
 
             <span class="BagSummary MiniBagNonSecure">
-                <a href="shoppingbag.html">
+                <a href="/html/shoppingbag.html">
                     <div class="Icon">
                         <div class="ItemCount">
                             <span id="ItemsCountText">0</span>
@@ -59,7 +60,7 @@
                 </a>
             </span>
             <div class="Checkout">
-                <a class="goToCart" href="ShoppingBag.html">לקופה</a>
+                <a class="goToCart" href="/html/ShoppingBag.html">לקופה</a>
             </div>
 
 
@@ -86,7 +87,7 @@
             <input type="text" id="nameSearch" class="floatRight" placeholder="חיפוש לפי שם מוצר">
 
             <button class="floatRight" tabindex="0" onclick="filterProducts()">
-                <span class="header42"><img src="searchIcon.svg" alt="סמל חיפוש"></span>
+                <span class="header42"><img src="/searchIcon.svg" alt="סמל חיפוש"></span>
             </button>
         </div>
         <div id="priceRangeFilter" class="filterBreak">
@@ -98,7 +99,7 @@
             <input type="text" maxlength="9" id="maxPrice" class="priceInputText" placeholder="max">
             <span class="priceCurrency">₪</span>
             <button onclick="filterProducts()">
-                <span><img src="searchIcon.svg" alt="סמל חיפוש"></span>
+                <span><img src="/searchIcon.svg" alt="סמל חיפוש"></span>
             </button>
         </div>
     </div>

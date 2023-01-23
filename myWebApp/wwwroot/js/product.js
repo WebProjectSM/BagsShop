@@ -34,8 +34,9 @@ function sendProduct() {
        
         var temp = document.getElementById("temp-card");
             var clon = temp.content.cloneNode(true);
-            clon.querySelector("img").src = product.image;
-            clon.querySelector("h1").innerText = product.productName+product.categoryName;
+            clon.querySelector("img").src = "../images/"+product.image;
+        clon.querySelector("h1").innerText = product.productName
+        clon.querySelector("h3").innerText=product.categoryName;
             clon.querySelector(".price").innerText = product.price;
             clon.querySelector("button").addEventListener("click",() => addProduct(product))
             clon.querySelector(".description").innerText = product.description;
