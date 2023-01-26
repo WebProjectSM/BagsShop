@@ -70,7 +70,7 @@ async function singIn() {
 
         let div = document.getElementById("up")
         div.style.visibility = "visible";
-        document.getElementById("title").innerHTML = `שלום ${userName}`;
+        //document.getElementById("title").innerHTML = `שלום ${userName}`;
         let a = document.getElementById("un");
         a.setAttribute("value", userName);
         let b = document.getElementById("fn");
@@ -110,7 +110,7 @@ async function update() {
 
     const user = {
         "UserId": realId,        
-        "Email": document.getElementById("email").value,       
+        "Email": document.getElementById("un").value,       
         "FirstName": document.getElementById("fn").value,
         "LastName": document.getElementById("ln").value,
         "Password": document.getElementById("pass").value

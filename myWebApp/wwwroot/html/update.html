@@ -1,32 +1,38 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <script src="/js/JavaScript.js"></script>
+﻿<link href="/css/login.css" rel="stylesheet" />
+<script src="/js/JavaScript.js"></script>
 
-    <title id="title"></title>
-    <link href="/css/StyleSheet.css" rel="stylesheet" />
-
-
-
-</head>
-<body>
-    <button onclick="setValues()">לעדכון הפרטים</button>
-    <br />
-    <div id ="up"style="visibility:hidden">
-        <p> שם משתמש</p>
-        <input id="un" />
-        <p> סיסמא</p>
-        <input id="pass" />
-        <p> שם פרטי</p>
-        <input id="fn" />
-        <p> שם משפחה</p>
-        <input id="ln" />
-        <p> טלפון</p>
-        <input id="ph" /><br />
-        <p> מייל</p>
-        <input id="email" /><br />
-        <button onclick="update()">עדכון</button>
+<div class="login-wrap">
+    <div class="login-html">
+        
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><button for="tab-2" class="button" onclick="setValues()">Update</button>
+        <div class="login-form">
+            
+            <div class="update" id="up" style="visibility:hidden">
+                <div class="group">
+                    <label for="un" class="label">Username</label>
+                    <input id="un" type="text" class="input" />
+                    
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="text" />
+                </div>
+                <div class="group">
+                    <label for="fn" class="label">First Name</label>
+                    <input id="fn" type="text" class="input"/>
+                </div>
+                <div class="group">
+                    <label for="ln" class="label">Last Name</label>
+                    <input id="ln" type="text" class="input"/>
+                </div>
+                <div class="group">
+                    <button class="button" onclick="update()">update</button>
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                   
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>

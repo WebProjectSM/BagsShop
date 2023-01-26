@@ -9,7 +9,7 @@ using myWebApp;
 using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
-var str = builder.Configuration.GetConnectionString("school");
+var str = builder.Configuration.GetConnectionString("home");
 builder.Services.AddDbContext<bagsContext>(optios => optios.UseSqlServer(str));
 builder.Services.AddDbContext<bagsContext>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -42,7 +42,22 @@ if (app.Environment.IsDevelopment())
 }
 app.UseErrorHandlingMiddleware();
 
-app.UseRatingMiddleware();
+app.Use(async (context, next) =>
+{
+    context.Response.GetTypedHeaders().CacheControl =
+    new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
+    {
+        Public = true,
+        MaxAge = TimeSpan.FromSeconds(20)
+    };
+    context.Response.Headers[Microsoft.Net.Http.Headers.HeaderNames.Vary] =
+    new string[] { "Accept-Encoding" };
+    await next();
+
+
+
+});
+//app.UseRatingMiddleware();
 
 app.UseHttpsRedirection();
 

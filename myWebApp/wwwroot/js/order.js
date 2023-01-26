@@ -3,30 +3,36 @@ var items = [];
 var sum = 0;
 var userId=0;
 var orderItaems = [];
+var orderId = 0;
 window.addEventListener("load", makeOrder());
 
+
 async function makeOrder() {
-    userId=sessionStorage.getItem["currentUser"].userId
+
     setPrice();
-    //getUserId();
+    userId = JSON.parse(sessionStorage.getItem('currentUser')).userId;
     getProductsItems();
+   
     const order = {
-        "orderId": 0,
-         "orderDate":new Date(),
-         "orderSum": sum,
-         "userId": userId,
-         "orderItems":orderItaems
+        "OrderDate": new Date(),
+        "OrderId": orderId++,       
+         "OrderSum": sum,
+         "UserId": userId,
+         "OrderItems":orderItaems
 
     }
 
-    var res = await fetch("api/order",{
-          headers: { "content-Type": "application/json" },
+
+        var res = await fetch("https://localhost:44380/Api/order", {
+        headers: { "content-Type": "application/json" },
         method: 'POST',
-        body: JSON.stringify(order)
+        body: JSON.stringify(order),
     })
+    
     if (res.ok) {
         alert("הזמנתך התקבלה בהצלחה");
         sessionStorage.removeItem("prod");
+        window.location.href = "product.html";
     }
     else (
         alert("תקלה בביצוע ההזמנה"))

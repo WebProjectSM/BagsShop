@@ -30,7 +30,7 @@ a {
     max-width: 525px;
     min-height: 670px;
     position: relative;
-    background: url("../bags.jpg") center;
+    background: url("/images/bags.jpg") center;
     /* https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg  */
 
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.011),0 17px 50px 0 rgba(0,0,0,.19);
@@ -55,6 +55,16 @@ a {
         backface-visibility: hidden;
         transition: all .4s linear;
     }
+.update {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    transition: all .4s linear;
+    backface-visibility:visible
+}
 
     .login-html .sign-in,
     .login-html .sign-up,

@@ -18,8 +18,8 @@ namespace DataLayer
         }
         public void insertRatingTable(string host, string method, string path, DateTime record_date)
         {
-            string query = "INSERT INTO [dbo].[RATING] ([HOST],[METHOD],[PATH]) VALUES(@host,@method,@path)";
-            using (SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("school")))
+            string query = "INSERT INTO [RATING] ([HOST],[METHOD],[PATH]) VALUES(@host,@method,@path)";
+            using (SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("home")))
             using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
             {
                 sqlCommand.Parameters.Add("@HOST", SqlDbType.NVarChar).Value = host;
