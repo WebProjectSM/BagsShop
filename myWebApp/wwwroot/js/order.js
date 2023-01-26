@@ -6,6 +6,7 @@ var orderItaems = [];
 window.addEventListener("load", makeOrder());
 
 async function makeOrder() {
+    userId=sessionStorage.getItem["currentUser"].userId
     setPrice();
     //getUserId();
     getProductsItems();
@@ -13,7 +14,7 @@ async function makeOrder() {
         "orderId": 0,
          "orderDate":new Date(),
          "orderSum": sum,
-         "userId": uderId,
+         "userId": userId,
          "orderItems":orderItaems
 
     }

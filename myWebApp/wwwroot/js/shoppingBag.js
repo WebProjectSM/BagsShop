@@ -34,7 +34,7 @@ function drawProducts(product) {
    
         var temp = document.getElementById("temp-row");
         var clon = temp.content.cloneNode(true);
-    clon.querySelector("img").src = product.image;
+    clon.querySelector("img").src ="../images/"+ product.image;
         //clon.querySelector("h1").innerText = products[i].productName;
     clon.querySelector(".price").innerText = product.price;
       

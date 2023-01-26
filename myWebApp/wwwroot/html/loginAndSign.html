@@ -8,11 +8,11 @@
         <div class="login-form">
             <div class="sign-in-htm">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
+                    <label for="name" class="label">Username</label>
                     <input id="name" type="text" class="input">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Password</label>
+                    <label for="passsword" class="label">Password</label>
                     <input id="password" type="password" class="input" data-type="password">
                 </div>
                 <div class="group">
@@ -20,32 +20,32 @@
                     <label for="check"><span class="icon"></span> Keep me Signed in</label>
                 </div>
                 <div class="group">
-                    <input type="submit" class="button" value="Sign In">
+                    <input type="submit" class="button" value="Sign In" onclick="logIn()">
                 </div>
                 <div class="hr"></div>
                 <div class="foot-lnk">
-                    <a href="#forgot">Forgot Password?</a>
+
                 </div>
             </div>
             <div class="sign-up-htm">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <label for="userName" class="label">Username</label>
+                    <input id="userName" type="text" class="input">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input id="pass" type="password" class="input" data-type="text">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Repeat Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <label for="fname" class="label">First Name</label>
+                    <input id="fname" type="text" class="input">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Email Address</label>
-                    <input id="pass" type="text" class="input">
+                    <label for="lname" class="label">Last Name</label>
+                    <input id="lname" type="text" class="input">
                 </div>
                 <div class="group">
-                    <input type="submit" class="button" value="Sign Up" onclick="singIn()">
+                    <button class="button" onclick="singIn()">Sign Up</button>
                 </div>
                 <div class="hr"></div>
                 <div class="foot-lnk">
@@ -55,3 +55,135 @@
         </div>
     </div>
 </div>
+
+////////////////////////////////////////////
+<!--validations:
+</head>
+<body style="background-color: #666666;">
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-form validate-form">
+
+
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" id="nameuse">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">NameUser</span>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" id="system">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Password</span>
+                    </div>
+
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <div>
+                            <a href="#" class="txt1">
+                                Forgot Password?
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="container-login100-form-btn">
+                        <button onclick="get()" class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                    <button onclick="usernew()" class="login100-form-btn">
+                        sign in
+                    </button>
+                </div>
+
+                <div id="details" style="display:none">
+
+                    <div class="limiter">
+                        <div class="container-login100">
+                            <div class="wrap-login100">
+                                <div class="login100-form validate-form">
+                                    <form>
+
+
+                                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                                            <input class="input100" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="אנא הזן כתובת מייל תקינה" />
+
+                                            <span class="focus-input100"></span>
+                                            <span class="label-input100">email</span>
+                                        </div>
+                                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                                            <input class="input100" id="user" pattern=".{4,}" title="אנא הזן 4 תווים לפחות " />
+                                            <span class="focus-input100"></span>
+                                            <span class="label-input100">nameuser</span>
+                                        </div>
+                                        <div class="wrap-input100 validate-input">
+                                            <input class="input100" type="password" id="password" required />
+                                            <span class="focus-input100"></span>
+                                            <span class="label-input100">password</span>
+                                        </div>
+
+                                        <div class="wrap-input100 validate-input">
+                                            <input class="input100" type="text" id="firstname" />
+                                            <span class="focus-input100"></span>
+                                            <span class="label-input100">firstname</span>
+                                        </div>
+
+                                        <div class="wrap-input100 validate-input">
+                                            <input class="input100" type="text" id="lastname" />
+                                            <span class="focus-input100"></span>
+                                            <span class="label-input100">lastname</span>
+                                        </div>
+
+
+                                        <input type="submit" value="Submit">
+
+                                        <div class="container-login100-form-btn">
+                                            <button onclick="login()" class="login100-form-btn">
+                                                רישום
+                                            </button>
+                                        </div>
+
+
+                                    </form>
+
+                                    <button onclick="checkPassword()">check password</button>
+                                    <progress max="4" id="pass"></progress>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center p-t-46 p-b-20">
+                        <span class="txt2">
+                            or sign up using
+                        </span>
+                    </div>
+
+                    <div class="login100-form-social flex-c-m">
+                        <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="login100-more" style="background-image: url('image/bg-01.jpg');">
+                </div>
+            </div>
+        </div>
+    </div>-->
+

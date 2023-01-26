@@ -2,6 +2,7 @@
 using System.Text.Json;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace DataLayer
 {
@@ -28,7 +29,7 @@ namespace DataLayer
                 return u;
             else
             {
-                throw new Exception("user not found");
+                //throw new Exception("user not found");
                 return null;
             }
         }
@@ -54,7 +55,7 @@ namespace DataLayer
             else return null;
 
         }
-        public async void update(int id, User user)
+        public async Task update(int id, User user)
         {
             User userToUpdate = await _bagsDBContext.Users.FindAsync(id);
             if (userToUpdate != null) 

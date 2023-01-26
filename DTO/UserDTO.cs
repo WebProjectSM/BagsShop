@@ -14,7 +14,7 @@ namespace DTO
         [EmailAddress(ErrorMessage = "the mail is not vaild")]
         public string Email { get; set; } = null!;
 
-        [MinLength(2, ErrorMessage = "Min Length in name is 2 letters"), MaxLength(20, ErrorMessage = "Max Length in name is 20 letters")]
+       [MinLength(2, ErrorMessage = "Min Length in name is 2 letters"), MaxLength(20, ErrorMessage = "Max Length in name is 20 letters")]
         public string FirstName { get; set; } = null!;
 
         [MinLength(2, ErrorMessage = "Min Length in name is 2 letters"), MaxLength(20, ErrorMessage = "Max Length in name is 20 letters")]

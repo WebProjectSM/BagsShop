@@ -16,17 +16,17 @@ namespace DataLayer
         {
             _configuration = configuration;
         }
-        public void insertRatingTable(string host, string method, string path, string referer, DateTime record_date)
+        public void insertRatingTable(string host, string method, string path, DateTime record_date)
         {
-            string query = "INSERT INTO [dbo].[bags_details] ([HOST],[METHOD],[PATH],[REFERER],[RECORD_DATE]) VALUES(@host,@method,@path,@referer,@record_date)";
+            string query = "INSERT INTO [dbo].[RATING] ([HOST],[METHOD],[PATH]) VALUES(@host,@method,@path)";
             using (SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("school")))
             using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
             {
                 sqlCommand.Parameters.Add("@HOST", SqlDbType.NVarChar).Value = host;
                 sqlCommand.Parameters.Add("@METHOD", SqlDbType.NVarChar).Value = method;
                 sqlCommand.Parameters.Add("@PATH", SqlDbType.NVarChar).Value = path;
-                sqlCommand.Parameters.Add("@REFERER", SqlDbType.NVarChar).Value = referer;
-                sqlCommand.Parameters.Add("@RECORD_DATE", SqlDbType.Date).Value = record_date;
+                //sqlCommand.Parameters.Add("@REFERER", SqlDbType.NVarChar).Value = referer;
+                //sqlCommand.Parameters.Add("@RECORD_DATE", SqlDbType.Date).Value = record_date;
 
 
 

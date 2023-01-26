@@ -10,16 +10,18 @@ namespace myWebApp
     public class RatingMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly RatingDL _ratingDL;
+        private readonly IRatingDL _ratingDL;
 
         public RatingMiddleware(RequestDelegate next,IRatingDL ratingDL)
         {
             _next = next;
+            _ratingDL = ratingDL;
         }
 
         public  Task Invoke(HttpContext httpContext)
         {
-            _ratingDL.insertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path, null, new DateTime().Date);
+            _ratingDL.insertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path,  new DateTime());
+           // Console.WriteLine(new DateTime().Date);
             return  _next(httpContext);
         }
     }

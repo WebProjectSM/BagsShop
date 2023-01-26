@@ -35,7 +35,7 @@ async function singIn() {
         "Email": document.getElementById("userName").value,        
         "FirstName": document.getElementById("fname").value,
         "LastName": document.getElementById("lname").value,
-        "Password": document.getElementById("password").value,
+        "Password": document.getElementById("pass").value,
     }
 
 
@@ -54,7 +54,7 @@ async function singIn() {
     if(data)
     //sessionStorage.setItem('currentUser', JSON.stringify(data));
    /* setValues()*/;
-    window.location.href = "login.html";
+    window.location.href = "loginAndSign.html";
 }
 
     function setValues() {
@@ -117,17 +117,17 @@ async function update() {
     }
 
 
-    //const res = await fetch(`https://localhost:44380/Api/user/${realId}`, {
+    const res = await fetch(`https://localhost:44380/Api/user/${realId}`, {
 
-    //    headers: { "content-Type": "application/json" },
-    //    method: 'PUT',
-    //    body: JSON.stringify(user)
-    //});
+        headers: { "content-Type": "application/json" },
+        method: 'PUT',
+        body: JSON.stringify(user)
+    });
 
-    //if (res.ok) {
-    //    alert("your details were update")
-    //    
-    //}
+    if (res.ok) {
+        alert("your details were update")
+        
+    }
     window.location.href="order.html";
   
 }
