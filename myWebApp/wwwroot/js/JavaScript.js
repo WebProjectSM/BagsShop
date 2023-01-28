@@ -28,23 +28,46 @@
         }
 } 
 async function singIn() {
+    var mail = document.getElementById("userName")
+    var password = document.getElementById("pass")
+    var fn = document.getElementById("fname")
+    var ln = document.getElementById("lname")
 
-    
-    const user = {
-        "UserId": 0,        
-        "Email": document.getElementById("userName").value,        
-        "FirstName": document.getElementById("fname").value,
-        "LastName": document.getElementById("lname").value,
-        "Password": document.getElementById("pass").value,
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var letters = /^[A-Za-z]+$/;
+    if (!mail.value.match(validRegex)) {
+        error = document.getElementById("emailValid")
+        error.setAttribute("title", "email is not valid")
+        alert("email is not valid")
+       
     }
+    if (password.value == "")
+    {
+        alert("password required");
+    }
+    if (!(ln.value.length >= 2 && fn.value.length >= 2 && ln.value.length <=20 && fn.value.length <=20))
+    {
+        alert("name shuld be only letters and at least 4 letters");
+    }
+   
+    else {
+
+        const user = {
+            "UserId": 0,
+            "Email": mail.value,
+            "FirstName": document.getElementById("fname").value,
+            "LastName": document.getElementById("lname").value,
+            "Password": document.getElementById("pass").value,
+        }
 
 
-    const res = await fetch("https://localhost:44380/api/user", {
+        const res = await fetch("https://localhost:44380/api/user", {
 
-        headers: { "content-Type": "application/json" },
-        method: 'POST',
-        body: JSON.stringify(user)
-    });
+            headers: { "content-Type": "application/json" },
+            method: 'POST',
+            body: JSON.stringify(user)
+        });
+    
 
     if (!res.ok)
         throw Error(`your connect is fail ${res.status} ,try again`);
@@ -56,7 +79,7 @@ async function singIn() {
    /* setValues()*/;
     window.location.href = "loginAndSign.html";
 }
-
+}
     function setValues() {
         const tmpUser = sessionStorage.getItem('currentUser');
         const user = JSON.parse(tmpUser);
@@ -109,8 +132,8 @@ async function update() {
 
 
     const user = {
-        "UserId": realId,        
-        "Email": document.getElementById("un").value,       
+        "UserId": realId,
+        "Email": document.getElementById("un").value,
         "FirstName": document.getElementById("fn").value,
         "LastName": document.getElementById("ln").value,
         "Password": document.getElementById("pass").value
@@ -124,21 +147,27 @@ async function update() {
         body: JSON.stringify(user)
     });
 
-    if (res.ok) {
-        alert("your details were update")
-        
-    }
-    window.location.href="order.html";
-  
-}
-async function  check (){
- password = document.getElementById("password").value;
-    const res = await fetch("https://localhost:44387/api/checkPassword", {
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-        method: 'POST',
-        body: JSON.stringify(password)
-    })
-    if (res > 0)
-        alert(res);
+    if (!res.ok) {
+        alert("error")
+        console.log(`your connect is fail ${res.status}`)
 
+    }
+    else {
+        alert("your details were updated")
+        window.location.href = "order.html";
+    }
+
+
+    //}
+    async function check() {
+        password = document.getElementById("password").value;
+        const res = await fetch("https://localhost:44387/api/checkPassword", {
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            method: 'POST',
+            body: JSON.stringify(password)
+        })
+        if (res > 0)
+            alert(res);
+
+    }
 }

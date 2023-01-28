@@ -50,14 +50,14 @@ namespace DataLayer
             var res=await _bagsDBContext.Users.AddAsync(userToAdd);
             var res2=await _bagsDBContext.SaveChangesAsync();
             if(res2!=-1)
-            //User tmpUser= await getUser(userToAdd.Password, userToAdd.Email);
-            return userToAdd;
+                //User tmpUser= await getUser(userToAdd.Password, userToAdd.Email);
+                return userToAdd;
             else return null;
 
         }
         public async Task update(int id, User user)
         {
-            User userToUpdate = await _bagsDBContext.Users.FindAsync(id);
+            Task<User> userToUpdate = getUserById(id);
             if (userToUpdate != null) 
             {
                 _bagsDBContext.Entry(userToUpdate).CurrentValues.SetValues(user);

@@ -20,7 +20,7 @@ namespace DTO
         [MinLength(2, ErrorMessage = "Min Length in name is 2 letters"), MaxLength(20, ErrorMessage = "Max Length in name is 20 letters")]
         public string LastName { get; set; } = null!;
 
-        [StringLength(4, ErrorMessage = "Length in cod is 4 letters"), MinLength(4, ErrorMessage = "Min Length in name is 2 letters")]
+        [MinLength(1, ErrorMessage = "Min Length in password is 1 letters"), MaxLength(10, ErrorMessage = "Max Length in password is 20 letters")]
         public string Password { get; set; } = null!;
     }
 }

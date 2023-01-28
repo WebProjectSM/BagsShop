@@ -42,23 +42,9 @@ if (app.Environment.IsDevelopment())
 }
 app.UseErrorHandlingMiddleware();
 
-app.Use(async (context, next) =>
-{
-    context.Response.GetTypedHeaders().CacheControl =
-    new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
-    {
-        Public = true,
-        MaxAge = TimeSpan.FromSeconds(20)
-    };
-    context.Response.Headers[Microsoft.Net.Http.Headers.HeaderNames.Vary] =
-    new string[] { "Accept-Encoding" };
-    await next();
 
-
-
-});
 //app.UseRatingMiddleware();
-
+app.UseCacheMiddleware();
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();

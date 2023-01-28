@@ -22,7 +22,7 @@ namespace myWebApp
         {
             _ratingDL.insertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path,  new DateTime());
            // Console.WriteLine(new DateTime().Date);
-            return  _next(httpContext);
+            return _next(httpContext);
         }
     }
 
