@@ -46,8 +46,13 @@ namespace BusinessLayer
         {
             _dl.update(id, user);
         }
-        
-       
+        public int Check_password(string password)
+        {
+            Result result = Zxcvbn.Core.EvaluatePassword(password);
+            return result.Score;
+
+        }
+
 
     }
 }

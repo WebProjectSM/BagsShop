@@ -9,7 +9,7 @@ using myWebApp;
 using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
-var str = builder.Configuration.GetConnectionString("home");
+var str = builder.Configuration.GetConnectionString("school");
 builder.Services.AddDbContext<bagsContext>(optios => optios.UseSqlServer(str));
 builder.Services.AddDbContext<bagsContext>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -43,7 +43,7 @@ if (app.Environment.IsDevelopment())
 app.UseErrorHandlingMiddleware();
 
 
-//app.UseRatingMiddleware();
+app.UseRatingMiddleware();
 app.UseCacheMiddleware();
 app.UseHttpsRedirection();
 
@@ -54,4 +54,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-//!!!!!!!!!!!!!!!!!!!!!!!!

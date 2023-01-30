@@ -27,34 +27,37 @@
             
         }
 } 
-async function singIn() {
-    var mail = document.getElementById("userName")
-    var password = document.getElementById("pass")
-    var fn = document.getElementById("fname")
-    var ln = document.getElementById("lname")
 
+function userValidate() {
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     var letters = /^[A-Za-z]+$/;
     if (!mail.value.match(validRegex)) {
-        error = document.getElementById("emailValid")
-        error.setAttribute("title", "email is not valid")
-        alert("email is not valid")
-       
+        document.getElementById("emailValid").innerHTML = "email is not valid";
+        return false;
+            }
+    if (password.value == "") {
+        document.getElementById("passValid").innerHTML = "password is required";
+        return false;
     }
-    if (password.value == "")
-    {
-        alert("password required");
+    if (ln.value.length < 2 || ln.value.length > 20) {
+        document.getElementById("lnameValid").innerHTML = "name shuld be only letters and at least 4 letters";
+        return false;
     }
-    if (!(ln.value.length >= 2 && fn.value.length >= 2 && ln.value.length <=20 && fn.value.length <=20))
-    {
-        alert("name shuld be only letters and at least 4 letters");
+    if (fn.value.length < 2 || fn.value.length > 20) {
+        document.getElementById("fnameValid").innerHTML = "name shuld be only letters and at least 4 letters"
+        return false;
     }
+    return true;
+}
+
+async function singIn() {
+    if (userValidate())
    
-    else {
+    {
 
         const user = {
             "UserId": 0,
-            "Email": mail.value,
+            "Email": document.getElementById("email").value,
             "FirstName": document.getElementById("fname").value,
             "LastName": document.getElementById("lname").value,
             "Password": document.getElementById("pass").value,
@@ -126,6 +129,8 @@ async function singIn() {
 
 
 async function update() {
+    if (userValidate()) {
+
     const tmpUser = sessionStorage.getItem('currentUser');
     const id = JSON.parse(tmpUser);
     const realId = id["userId"];
@@ -140,7 +145,7 @@ async function update() {
     }
 
 
-    const res = await fetch(`https://localhost:44380/Api/user/${realId}`, {
+    const res = await fetch(`https://localhost:44380/api/user/${realId}`, {
 
         headers: { "content-Type": "application/json" },
         method: 'PUT',
@@ -157,17 +162,28 @@ async function update() {
         window.location.href = "order.html";
     }
 
+ }
+    }
 
-    //}
-    async function check() {
-        password = document.getElementById("password").value;
-        const res = await fetch("https://localhost:44387/api/checkPassword", {
-            headers: { "Content-Type": "application/json; charset=utf-8" },
-            method: 'POST',
-            body: JSON.stringify(password)
-        })
-        if (res > 0)
-            alert(res);
+async function check() {
+    password = document.getElementById("pass").value;
+    var res = await fetch("https://localhost:44380/api/checkPassword", {
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        method: 'POST',
+        body: JSON.stringify(password)
+    })
+    if (!res.ok) 
+        console.log(`your connect is fail ${res.status}`)
+
+        var data = await res.json();
+    if (data !=null) {
+        document.getElementById("strongPassword").innerHTML=`the strong level of your password is:${data}`
+    }
+      
 
     }
-}
+   
+
+function continueOrder() {
+       window.location.href = "order.html";
+    }

@@ -57,12 +57,10 @@ namespace DataLayer
         }
         public async Task update(int id, User user)
         {
-            Task<User> userToUpdate = getUserById(id);
-            if (userToUpdate != null) 
-            {
-                _bagsDBContext.Entry(userToUpdate).CurrentValues.SetValues(user);
+            
+                _bagsDBContext.Users.Update(user);
                 await _bagsDBContext.SaveChangesAsync();
-            }
+          
 
         }
 

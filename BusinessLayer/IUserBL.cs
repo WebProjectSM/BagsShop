@@ -9,6 +9,7 @@ namespace BusinessLayer
         Task<User> getUser(string name, string password);
         Task<User> getUserById(int id);
         void update(int id, User user);
+        public int Check_password(string password);
 
     }
 }

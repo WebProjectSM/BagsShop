@@ -14,12 +14,7 @@ namespace myWebApp.wwwroot
         {
             _bl = bl;
         }
-        // GET: api/<checkPasswordController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        
 
         // GET api/<checkPasswordController>/5
         [HttpGet("{id}")]
@@ -30,28 +25,18 @@ namespace myWebApp.wwwroot
 
         // POST api/<checkPasswordController>
         [HttpPost]
-        //public ActionResult<int> Post([FromBody] string password)
-        //{
-        //    {
-        //        var pass_ok = _bl.Check_password(password);
-        //        if (pass_ok != null)
-        //            return pass_ok;
-        //        else
-        //            return StatusCode(404);
-        //    }
-
-        //}
-
-        // PUT api/<checkPasswordController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<int> Post([FromBody] string password)
         {
+            {
+                var pass_ok = _bl.Check_password(password);
+                if (pass_ok != null)
+                    return pass_ok;
+                else
+                    return StatusCode(404);
+            }
+
         }
 
-        // DELETE api/<checkPasswordController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+     
     }
 }

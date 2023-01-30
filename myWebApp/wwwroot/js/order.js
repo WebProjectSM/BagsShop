@@ -30,7 +30,10 @@ async function makeOrder() {
     })
     
     if (res.ok) {
-        alert("הזמנתך התקבלה בהצלחה");
+        const orderRes = await res.json()
+        
+        alert(`your order have succes, number of order is: ${orderRes.orderId}`);
+        console.log(orderRes)
         sessionStorage.removeItem("prod");
         window.location.href = "product.html";
     }

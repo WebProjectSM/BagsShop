@@ -16,13 +16,13 @@ namespace DataLayer
         {
             _configuration = configuration;
         }
-        public void insertRatingTable(string host, string method, string path, DateTime record_date)
+        public async Task InsertRatingTable(string host, string method, string path, DateTime record_date)
         {
             string query = "INSERT INTO [RATING] ([HOST],[METHOD],[PATH]) VALUES(@host,@method,@path)";
-            using (SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("home")))
+            using ( SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("school")))
             using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
             {
-                sqlCommand.Parameters.Add("@HOST", SqlDbType.NVarChar).Value = host;
+                 sqlCommand.Parameters.Add("@HOST", SqlDbType.NVarChar).Value = host;
                 sqlCommand.Parameters.Add("@METHOD", SqlDbType.NVarChar).Value = method;
                 sqlCommand.Parameters.Add("@PATH", SqlDbType.NVarChar).Value = path;
                 //sqlCommand.Parameters.Add("@REFERER", SqlDbType.NVarChar).Value = referer;
@@ -30,8 +30,8 @@ namespace DataLayer
 
 
 
-                sqlConnection.Open();
-                sqlCommand.ExecuteNonQuery();
+                 sqlConnection.Open();
+                 sqlCommand.ExecuteNonQuery();
             }
 
 

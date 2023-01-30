@@ -18,11 +18,11 @@ namespace myWebApp
             _ratingDL = ratingDL;
         }
 
-        public  Task Invoke(HttpContext httpContext)
+        public async Task Invoke(HttpContext httpContext)
         {
-            _ratingDL.insertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path,  new DateTime());
+            _ratingDL.InsertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path,  new DateTime());
            // Console.WriteLine(new DateTime().Date);
-            return _next(httpContext);
+             await _next(httpContext);
         }
     }
 
