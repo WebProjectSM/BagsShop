@@ -1,9 +1,9 @@
 ﻿
-var items = [];
+let items = [];
 let sum = 0;
-var userId=0;
-var orderItaems = [];
-var orderId = 1;
+let userId=0;
+let orderItaems = [];
+let orderId = 1;
 window.addEventListener("load", makeOrder());
 
 
@@ -42,7 +42,7 @@ async function makeOrder() {
 }
 
 function setPrice() {
-    var prod = sessionStorage.getItem("prod");
+    let prod = sessionStorage.getItem("prod");
     items = JSON.parse(prod);
     items.forEach((e) => {
         sum += e.price;
@@ -50,14 +50,14 @@ function setPrice() {
 
 }
 //function getUserId(){
-//    var id = sessionStorage.getItem("currentUser");
+//    let id = sessionStorage.getItem("currentUser");
 //     userId =1 //id["userId"];
 //}
 function getProductsItems() {
 
-    for (var i = 0; i < items.length; i++) {
+    for (let i = 0; i < items.length; i++) {
 
-        var obj = {
+        let obj = {
             "orderItemId": 0,
             "productId": items[i].productId,
             "orderId": 0,

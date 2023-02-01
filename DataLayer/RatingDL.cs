@@ -29,18 +29,9 @@ namespace DataLayer
                 sqlCommand.Parameters.Add("@REFERER", SqlDbType.NVarChar).Value =Referer;
                 sqlCommand.Parameters.Add("@USERAGENT", SqlDbType.NVarChar).Value = UserAgent;
 
-
-                
-
-
-
                 sqlConnection.Open();
-                 sqlCommand.ExecuteNonQuery();
+                sqlCommand.ExecuteNonQuery();
             }
-
-
-
-
 
         }
     }

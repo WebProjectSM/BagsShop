@@ -1,13 +1,14 @@
 ﻿<link href="/css/login.css" rel="stylesheet" />
-<script src="/js/JavaScript.js"></script>
-
+<script src="/js/loginAndSign.js"></script>
 <div class="login-wrap">
-    <div class="login-html">
+    <div id="title"></div>
+    <div class="login-html" id="updaeDetails">
         <div class="group">
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><button for="tab-2" class="button" onclick="setValues()">Update</button>
-            <button class="button" onclick="continueOrder()" >להמשך הזמנה</button>
+
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><button for="tab-2" class="button" onclick="setValues()">לעדכון פרטים</button>
+            <button class="button" onclick="continueOrder()">להמשך הזמנה</button>
         </div>
-                                                                   
+
         <div class="login-form">
             <div class="update" id="up" style="visibility:hidden">
                 <div class="group">
@@ -19,7 +20,7 @@
                 <div class="group">
                     <label for="pass" class="label">Password</label>
                     <input id="pass" type="password" class="input" data-type="text">
-                    <button on></button>
+                    <button onclick="checkPassword()">to check password strong</button>
                     <span id="passValid"></span>
                 </div>
                 <div class="group">
@@ -34,11 +35,11 @@
                 </div>
                 <button class="button" onclick="update()">update</button>
             </div>
-                <div class="hr"></div>
-                <div class="foot-lnk">
+            <div class="hr"></div>
+            <div class="foot-lnk">
 
-                </div>
             </div>
         </div>
     </div>
 </div>
+<script src="/js/update.js"></script>
