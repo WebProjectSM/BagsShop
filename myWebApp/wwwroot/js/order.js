@@ -3,7 +3,7 @@ var items = [];
 var sum = 0;
 var userId=0;
 var orderItaems = [];
-var orderId = 0;
+var orderId = 1;
 window.addEventListener("load", makeOrder());
 
 
@@ -16,7 +16,7 @@ async function makeOrder() {
     const order = {
         "OrderDate": new Date(),
         "OrderId": orderId++,       
-         "OrderSum": sum,
+         "OrderSum": 1234,
          "UserId": userId,
          "OrderItems":orderItaems
 

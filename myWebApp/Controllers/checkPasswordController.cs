@@ -15,13 +15,7 @@ namespace myWebApp.wwwroot
             _bl = bl;
         }
         
-
-        // GET api/<checkPasswordController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+       
 
         // POST api/<checkPasswordController>
         [HttpPost]

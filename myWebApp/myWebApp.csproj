@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="cache.txt" />
     <Content Include="Controllers\checkPasswordController.cs" />
   </ItemGroup>
 

@@ -40,7 +40,7 @@ namespace BusinessLayer
         {
             _dl.update(id, Product);
         }
-       
+
         public async Task<List<Product>> getProducts(int position, int skip, string? desc, int? minPrice, int? maxPrice, int?[] categories)
         {
             List<Product> products = await _dl.getProducts(position, skip, desc, minPrice, maxPrice, categories);

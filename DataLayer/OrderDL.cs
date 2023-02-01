@@ -47,6 +47,12 @@ namespace DataLayer
 
         }
 
+        public async Task<Product> findProduct(int id)
+        {
+            Product product = await _bagsDBContext.Products.FindAsync(id);
+                return product;
+        }
+
 
     }
 

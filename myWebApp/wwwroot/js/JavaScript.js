@@ -31,19 +31,19 @@
 function userValidate() {
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     var letters = /^[A-Za-z]+$/;
-    if (!mail.value.match(validRegex)) {
+    if (!document.getElementById("userName").value.match(validRegex)) {
         document.getElementById("emailValid").innerHTML = "email is not valid";
         return false;
             }
-    if (password.value == "") {
+    if (document.getElementById("pass").value == "") {
         document.getElementById("passValid").innerHTML = "password is required";
         return false;
     }
-    if (ln.value.length < 2 || ln.value.length > 20) {
+    if (document.getElementById("lname").value.length < 2 || ln.value.length > 20) {
         document.getElementById("lnameValid").innerHTML = "name shuld be only letters and at least 4 letters";
         return false;
     }
-    if (fn.value.length < 2 || fn.value.length > 20) {
+    if (document.getElementById("fname") .value.length < 2 || fn.value.length > 20) {
         document.getElementById("fnameValid").innerHTML = "name shuld be only letters and at least 4 letters"
         return false;
     }
@@ -51,13 +51,13 @@ function userValidate() {
 }
 
 async function singIn() {
-    if (userValidate())
+    if (!userValidate())
    
     {
 
         const user = {
             "UserId": 0,
-            "Email": document.getElementById("email").value,
+            "Email": document.getElementById("userName").value,
             "FirstName": document.getElementById("fname").value,
             "LastName": document.getElementById("lname").value,
             "Password": document.getElementById("pass").value,

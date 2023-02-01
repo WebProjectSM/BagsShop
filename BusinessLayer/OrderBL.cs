@@ -1,5 +1,6 @@
 ﻿using DataLayer;
 using Entities;
+using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Zxcvbn;
@@ -10,11 +11,13 @@ namespace BusinessLayer
     {
 
         readonly IOrderDL _dl;
-        public OrderBL(IOrderDL Orderdl)
+        readonly ILogger _logger;
+        public OrderBL(IOrderDL Orderdl,ILogger<OrderBL> logger)
         {
             _dl = Orderdl;
+            _logger = logger;
         }
-
+     
         public async Task<Order> getOrderById(int id)
         {
             Order Order = await _dl.getOrderById(id);
@@ -22,12 +25,18 @@ namespace BusinessLayer
                 return Order;
             return null;
         }
-        public async Task<Order> addOrder(Order usr)
+        public async Task<Order> addOrder(Order newOrder)
         {
-            Order Order = await _dl.addOrder(usr);
-            if (Order != null)
+            int realSum = await checkOrderSum(newOrder);
+            if(realSum!=newOrder.OrderSum)
             {
-                return Order;
+                newOrder.OrderSum = realSum;
+                _logger.LogInformation($" in Order {newOrder.OrderId} the user {newOrder.UserId} try to change his order price");
+            }
+            Order order = await _dl.addOrder(newOrder);
+            if (order != null)
+            {
+                return order;
             }
             return null;
         }
@@ -36,6 +45,19 @@ namespace BusinessLayer
         {
             _dl.update(id, Order);
         }
-       
+
+        public async Task<int> checkOrderSum(Order order)
+        {
+            int realSum = 0;
+
+            order.OrderItems.ToList().ForEach(async item =>
+            {
+                Product product = await _dl.findProduct(item.ProductId);
+                realSum += product.Price * item.Quantity;
+
+            });
+            return realSum;
+        }
+
     }
 }

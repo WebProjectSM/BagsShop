@@ -36,16 +36,16 @@ namespace myWebApp.Controllers.wwwroot
         //}
         
         [HttpGet]
-        
-        public async Task<List<ProductDTO>> Get([FromQuery]int position, [FromQuery]int skip,[FromQuery] string? desc, [FromQuery]int? minPrice,[FromQuery] int? maxPrice, [FromQuery]int?[] categories)
+
+        public async Task<List<ProductDTO>> Get([FromQuery] int position, [FromQuery] int skip, [FromQuery] string? desc, [FromQuery] int? minPrice, [FromQuery] int? maxPrice, [FromQuery] int?[] categories)
         {
-           
-           
+
+
             List<Product> products = await _bl.getProducts(position, skip, desc, minPrice, maxPrice, categories);
-            List<ProductDTO> prodDTO = _mapper.Map<List<Product>,List<ProductDTO>>(products);
+            List<ProductDTO> prodDTO = _mapper.Map<List<Product>, List<ProductDTO>>(products);
             return prodDTO;
-           
-         
+
+
         }
 
         // GET api/<HomeController>/5

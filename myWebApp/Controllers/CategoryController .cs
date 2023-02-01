@@ -26,6 +26,7 @@ namespace myWebApp.Controllers.wwwroot
         [HttpGet]
         public async Task<IEnumerable<CategoryDTO>> Get()
         {
+            
             IEnumerable<Category> categories= await _bl.getAllCategories();
             IEnumerable<CategoryDTO> categoriesDTO=_mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDTO>>(categories);
             return categoriesDTO;

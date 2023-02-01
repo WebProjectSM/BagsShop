@@ -8,5 +8,6 @@ namespace DataLayer
         Task<Order> addOrder(Order OrderToAdd);
         Task<Order> getOrderById(int id);
         void update(int id, Order Order);
+        Task<Product> findProduct(int id);
     }
 }
