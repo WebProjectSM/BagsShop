@@ -29,20 +29,12 @@ namespace myWebApp.Controllers.wwwroot
         public async Task<ActionResult<UserDTO>> Get([FromQuery] string password, string name)
         {
            
-          // _logger.LogInformation($"the user is {name}");
+           _logger.LogInformation($"the user is {name}");
 
-          //User user = await _bl.getUser(password, name);
-          //  if (user != null)
-          //  {
-          //      return Ok(user);
-            
-          //  }
-          //  _logger.LogError("erro");
-          //  return StatusCode(204);
             
             User user = await _bl.getUser(password,name);
             UserDTO UserDTO = _mapper.Map<User, UserDTO>(user);
-
+            
             return Ok(UserDTO);
 
         }

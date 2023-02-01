@@ -24,16 +24,6 @@ namespace myWebApp.Controllers.wwwroot
             
          
         }
-
-
-        // GET: api/<HomeController>
-        
-
-        //public async Task<IEnumerable<Product>> Get()
-        //{
-        //    return await _bl.getAllProducts();
-
-        //}
         
         [HttpGet]
 
@@ -53,7 +43,7 @@ namespace myWebApp.Controllers.wwwroot
         public async Task<ProductDTO> Get(int id)
         {
            
-            Product product =await _bl.getProductById(id);
+           Product product =await _bl.getProductById(id);
            ProductDTO prodDTO = _mapper.Map<Product,ProductDTO>(product);
             if (prodDTO != null)
                 return prodDTO;

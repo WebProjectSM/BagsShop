@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Controllers\checkPasswordController.cs" />
+    <Content Include="Controllers\CheckPasswordController.cs" />
   </ItemGroup>
 
   <ItemGroup>

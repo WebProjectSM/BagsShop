@@ -7,10 +7,10 @@ namespace myWebApp.wwwroot
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class checkPasswordController : ControllerBase
+    public class CheckPasswordController : ControllerBase
     {
         readonly IUserBL _bl;
-        public checkPasswordController(IUserBL bl)
+        public CheckPasswordController(IUserBL bl)
         {
             _bl = bl;
         }
@@ -22,7 +22,7 @@ namespace myWebApp.wwwroot
         public ActionResult<int> Post([FromBody] string password)
         {
             {
-                var pass_ok = _bl.Check_password(password);
+                int pass_ok = _bl.Check_password(password);
                 if (pass_ok != null)
                     return pass_ok;
                 else

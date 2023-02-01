@@ -21,16 +21,12 @@ namespace myWebApp.Controllers.wwwroot
             _mapper = mapper;
         }
 
-
-
-
         // POST api/<HomeController>
         [HttpPost]
         public async Task<ActionResult<OrderDTO>> Post([FromBody] OrderDTO orderDto)
         {
             Order order = _mapper.Map<OrderDTO, Order>(orderDto);
             Order Order = await _bl.addOrder(order);
-            //return CreatedAtAction(nameof(Get), new { id = Order.OrderId }, Order);
             OrderDTO ordDto = _mapper.Map<Order, OrderDTO>(Order);
             return ordDto;
 
