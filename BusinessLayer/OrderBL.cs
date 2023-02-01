@@ -50,12 +50,17 @@ namespace BusinessLayer
         {
             int realSum = 0;
 
-            order.OrderItems.ToList().ForEach(async item =>
+            //order.OrderItems.ToList().ForEach(async item =>
+            //{
+            //    Product product = await _dl.findProduct(item.ProductId);
+            //    realSum += product.Price * item.Quantity;
+
+            //});
+            foreach (var item in order.OrderItems.ToList())
             {
                 Product product = await _dl.findProduct(item.ProductId);
                 realSum += product.Price * item.Quantity;
-
-            });
+            }
             return realSum;
         }
 

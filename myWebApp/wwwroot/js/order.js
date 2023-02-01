@@ -1,6 +1,6 @@
 ﻿
 var items = [];
-var sum = 0;
+let sum = 0;
 var userId=0;
 var orderItaems = [];
 var orderId = 1;
@@ -16,14 +16,14 @@ async function makeOrder() {
     const order = {
         "OrderDate": new Date(),
         "OrderId": orderId++,       
-         "OrderSum": 1234,
+         "OrderSum": sum,
          "UserId": userId,
          "OrderItems":orderItaems
 
     }
 
 
-        var res = await fetch("https://localhost:44380/Api/order", {
+        let res = await fetch("https://localhost:44380/api/order", {
         headers: { "content-Type": "application/json" },
         method: 'POST',
         body: JSON.stringify(order),

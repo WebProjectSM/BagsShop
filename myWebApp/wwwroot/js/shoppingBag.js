@@ -7,9 +7,10 @@ window.addEventListener("load", GetProduct());
 
 
 async function GetProduct() {
-
+   
     var product = sessionStorage.getItem('prod');
     products = JSON.parse(product);
+    price(products);
     console.log(products);
     //var res = await fetch(url);
     //if (!res.ok)
@@ -83,3 +84,13 @@ function placeOrder() {
 }
     
 }
+
+function price(product) {
+   let price=0
+    for (let i = 0; i < product.length; i++)
+    {
+        price += product[i].price;
+    }
+    document.getElementById("totalAmount").innerText = price;
+}
+

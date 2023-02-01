@@ -39,11 +39,11 @@ function userValidate() {
         document.getElementById("passValid").innerHTML = "password is required";
         return false;
     }
-    if (document.getElementById("lname").value.length < 2 || ln.value.length > 20) {
+    if (document.getElementById("lname").value.length < 2 || lname.value.length > 20) {
         document.getElementById("lnameValid").innerHTML = "name shuld be only letters and at least 4 letters";
         return false;
     }
-    if (document.getElementById("fname") .value.length < 2 || fn.value.length > 20) {
+    if (document.getElementById("fname") .value.length < 2 || fname.value.length > 20) {
         document.getElementById("fnameValid").innerHTML = "name shuld be only letters and at least 4 letters"
         return false;
     }
@@ -97,11 +97,11 @@ async function singIn() {
         let div = document.getElementById("up")
         div.style.visibility = "visible";
         //document.getElementById("title").innerHTML = `שלום ${userName}`;
-        let a = document.getElementById("un");
+        let a = document.getElementById("userName");
         a.setAttribute("value", userName);
-        let b = document.getElementById("fn");
+        let b = document.getElementById("fname");
         b.setAttribute("value", userFname);
-        let c = document.getElementById("ln");
+        let c = document.getElementById("lname");
         c.setAttribute("value", userLname);
         
         let e = document.getElementById("pass");
@@ -138,9 +138,9 @@ async function update() {
 
     const user = {
         "UserId": realId,
-        "Email": document.getElementById("un").value,
-        "FirstName": document.getElementById("fn").value,
-        "LastName": document.getElementById("ln").value,
+        "Email": document.getElementById("userName").value,
+        "FirstName": document.getElementById("fname").value,
+        "LastName": document.getElementById("lname").value,
         "Password": document.getElementById("pass").value
     }
 
