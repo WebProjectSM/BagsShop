@@ -20,7 +20,11 @@ namespace myWebApp
 
         public async Task Invoke(HttpContext httpContext)
         {
-            _ratingDL.InsertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path,  new DateTime());
+            string Referer = httpContext.Request.Headers["Referer"];
+            string UserAgent = httpContext.Request.Headers["User-Agent"];
+            _ratingDL.InsertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path, Referer, UserAgent, DateTime.Now);
+            
+
            // Console.WriteLine(new DateTime().Date);
              await _next(httpContext);
         }

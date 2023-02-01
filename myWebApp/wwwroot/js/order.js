@@ -15,7 +15,7 @@ async function makeOrder() {
    
     const order = {
         "OrderDate": new Date(),
-        "OrderId": orderId++,       
+        "OrderId": 0,       
          "OrderSum": sum,
          "UserId": userId,
          "OrderItems":orderItaems

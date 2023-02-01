@@ -9,9 +9,9 @@ namespace BusinessLayer
 {
     public class OrderBL : IOrderBL
     {
-
+       
         readonly IOrderDL _dl;
-        readonly ILogger _logger;
+        readonly ILogger<OrderBL> _logger;
         public OrderBL(IOrderDL Orderdl,ILogger<OrderBL> logger)
         {
             _dl = Orderdl;
@@ -31,7 +31,7 @@ namespace BusinessLayer
             if(realSum!=newOrder.OrderSum)
             {
                 newOrder.OrderSum = realSum;
-                _logger.LogInformation($" in Order {newOrder.OrderId} the user {newOrder.UserId} try to change his order price");
+                _logger.LogError($" in Order {newOrder.OrderId} the user {newOrder.UserId} try to change his order price");
             }
             Order order = await _dl.addOrder(newOrder);
             if (order != null)
@@ -50,12 +50,6 @@ namespace BusinessLayer
         {
             int realSum = 0;
 
-            //order.OrderItems.ToList().ForEach(async item =>
-            //{
-            //    Product product = await _dl.findProduct(item.ProductId);
-            //    realSum += product.Price * item.Quantity;
-
-            //});
             foreach (var item in order.OrderItems.ToList())
             {
                 Product product = await _dl.findProduct(item.ProductId);

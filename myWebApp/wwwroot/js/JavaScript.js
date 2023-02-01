@@ -2,7 +2,7 @@
     async function logIn(){
         const pass = document.getElementById("password").value;
         const name = document.getElementById("name").value;
-        let res = await fetch(`https://localhost:44380/api/user?password=${pass}&name=${name}`);
+         let res = await fetch(`https://localhost:44380/api/user?password=${pass}&name=${name}`);
         
             
         if (!res.ok) { 

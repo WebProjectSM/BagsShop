@@ -16,21 +16,25 @@ namespace DataLayer
         {
             _configuration = configuration;
         }
-        public async Task InsertRatingTable(string host, string method, string path, DateTime record_date)
+        public async Task InsertRatingTable(string host, string method, string path ,string Referer, string UserAgent , DateTime record_date)
         {
-            string query = "INSERT INTO [RATING] ([HOST],[METHOD],[PATH]) VALUES(@host,@method,@path)";
+            string query = "INSERT INTO [RATING] ([HOST],[METHOD],[PATH],[REFERER],[USER_AGENT],[RECORD_DATE]) VALUES(@host,@method,@path,@Referer,@UserAgent,@record_date)";
             using ( SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("school")))
             using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
             {
-                 sqlCommand.Parameters.Add("@HOST", SqlDbType.NVarChar).Value = host;
+                sqlCommand.Parameters.Add("@HOST", SqlDbType.NVarChar).Value = host;
                 sqlCommand.Parameters.Add("@METHOD", SqlDbType.NVarChar).Value = method;
                 sqlCommand.Parameters.Add("@PATH", SqlDbType.NVarChar).Value = path;
-                //sqlCommand.Parameters.Add("@REFERER", SqlDbType.NVarChar).Value = referer;
-                //sqlCommand.Parameters.Add("@RECORD_DATE", SqlDbType.Date).Value = record_date;
+                sqlCommand.Parameters.Add("@RECORD_DATE", SqlDbType.DateTime).Value = record_date;
+                sqlCommand.Parameters.Add("@REFERER", SqlDbType.NVarChar).Value =Referer;
+                sqlCommand.Parameters.Add("@USERAGENT", SqlDbType.NVarChar).Value = UserAgent;
+
+
+                
 
 
 
-                 sqlConnection.Open();
+                sqlConnection.Open();
                  sqlCommand.ExecuteNonQuery();
             }
 
