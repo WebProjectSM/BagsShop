@@ -15,7 +15,7 @@ namespace BusinessLayer
         {
             _dl = Categorydl;
         }
-        //jgjh
+        
         public async Task<Category> getCategoryById(int id)
         {
             Category Category = await _dl.getCategoryById(id);

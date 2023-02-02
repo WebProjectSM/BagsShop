@@ -12,7 +12,8 @@ namespace myWebApp
             CreateMap<Product, ProductDTO>().ForMember(dest => dest.CategoryName, opts => opts.MapFrom(src => src.Category.CategoryName));
             CreateMap<User, UserDTO>().ReverseMap();
             CreateMap<OrderDTO, Order>().ReverseMap();
-            CreateMap<Category, CategoryDTO>();
+            CreateMap<Category, CategoryDTO>(); 
+            CreateMap<OrderItemDTO,OrderItem>().ReverseMap();
             
          }
 

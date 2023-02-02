@@ -33,14 +33,14 @@ function sendProduct() {
     function drawProducts(product){
        
         let temp = document.getElementById("temp-card");
-            let clon = temp.content.cloneNode(true);
-            clon.querySelector("img").src = "../images/"+product.image;
+        let clon = temp.content.cloneNode(true);
+        clon.querySelector("img").src = "../images/"+product.image;
         clon.querySelector("h1").innerText = product.productName
         clon.querySelector("h3").innerText=product.categoryName;
-            clon.querySelector(".price").innerText = product.price;
-            clon.querySelector("button").addEventListener("click",() => addProduct(product))
-            clon.querySelector(".description").innerText = product.description;
-            document.body.appendChild(clon);
+        clon.querySelector(".price").innerText = product.price;
+        clon.querySelector("button").addEventListener("click",() => addProduct(product))
+        clon.querySelector(".description").innerText = product.description;
+        document.body.appendChild(clon);
 
             
 }
@@ -75,20 +75,20 @@ function drawCategory() {
 function searchCategories() {
     let count = 0;
     let categories = document.getElementsByClassName("opt");
-    let c;
+    let category;
     for (let i = 1; i < categories?.length; i++) {
         if (categories[i].checked)
         {
             count++;
         if(count==1)
-           c += `categories=${document.getElementById(categories[i].value)}`;
+            category += `categories=${document.getElementById(categories[i].value)}`;
        
         else
-           c += `&categories=${document.getElementById(categories[i].value)}`;
+            category += `&categories=${document.getElementById(categories[i].value)}`;
         }
     }
 
-   window.addEventListener("load", GetProduct( `https://localhost:44380/api/Product?${c}`));
+    window.addEventListener("load", GetProduct(`https://localhost:44380/api/Product?${category}`));
 }
 async function filterProducts() {
     let name = document.getElementById("nameSearch").value;

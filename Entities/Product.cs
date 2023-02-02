@@ -18,6 +18,6 @@ namespace Entities
         public string? Description { get; set; }
         public string? Image { get; set; }
         public virtual Category Category { get; set; } = null!;
-        public virtual ICollection<OrderItem> OrderItems { get; set; }//miriam
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

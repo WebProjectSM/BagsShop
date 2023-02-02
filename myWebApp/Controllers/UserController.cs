@@ -75,17 +75,10 @@ namespace myWebApp.Controllers.wwwroot
             User user = _mapper.Map<UserDTO, User>(userToUpdate); 
             _bl.update(id, user);
 
-
-
         }
        
       
 
-        // DELETE api/<HomeController>/50
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-
-        }
+       
     }
 }

@@ -5,7 +5,7 @@ function setHelloUser() {
     const user = JSON.parse(tmpUser);
     const userName = user["firstName"];
     const hello = document.getElementById("title")
-        hello.innerText= `hello to: ${userName}`;
+    hello.innerText= `hello to: ${userName}`;
     document.getElementById("updaeDetails").appendChild(hello)
 }
 function userValidate() {

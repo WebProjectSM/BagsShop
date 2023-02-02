@@ -14,14 +14,12 @@ namespace myWebApp.Controllers.wwwroot
     public class ProductController : ControllerBase
     {
         readonly IProductBL _bl;
-         readonly IMapper _mapper;
-        readonly IRatingDL _rating;
+        readonly IMapper _mapper;    
         public HttpContext context;
-        public ProductController(IProductBL bl, IMapper mapper,IRatingDL rating )
+        public ProductController(IProductBL bl, IMapper mapper)
         {
             _bl = bl;
-            _mapper = mapper;
-            
+            _mapper = mapper;           
          
         }
         

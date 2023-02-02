@@ -23,10 +23,10 @@ namespace DataLayer
                               select userByPassword).ToListAsync();
 
 
-            User u = user.FirstOrDefault();
-            if (u != null)
+            User usr = user.FirstOrDefault();
+            if (usr != null)
 
-                return u;
+                return usr;
             else
             {
                 //throw new Exception("user not found");

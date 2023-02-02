@@ -1,8 +1,8 @@
 ﻿
 let userId;
-products = [];
-categories = [];
-tmpProduct = [];
+let products = [];
+let categories = [];
+let tmpProduct = [];
 window.addEventListener("load", GetProduct());
 
 
@@ -33,16 +33,15 @@ function send() {
 }
 function drawProducts(product) {
    
-        let temp = document.getElementById("temp-row");
-        let clon = temp.content.cloneNode(true);
+    let temp = document.getElementById("temp-row");
+    let clon = temp.content.cloneNode(true);
     clon.querySelector("img").src ="../images/"+ product.image;
         //clon.querySelector("h1").innerText = products[i].productName;
     clon.querySelector(".price").innerText = product.price;
-      
     clon.querySelector(".totalColumn").addEventListener("click", () => removeProduct(product))
     clon.querySelector(".descriptionColumn").innerText = product.description;
     clon.querySelector(".availabilityColumn").innerText = "במלאי";
-        document.body.appendChild(clon);
+    document.body.appendChild(clon);
 
 
     }
@@ -55,7 +54,6 @@ function drawProducts(product) {
 function removeProduct(prod) {
     sessionStorage.removeItem("prod");
     let ind = products.findIndex((e, i) => e.productId == prod.productId);
-    //products.removeItem(i)
     products.splice(ind,1);
     sessionStorage.setItem("prod", JSON.stringify(products) );
     let prods = document.getElementsByClassName("item-row");
@@ -79,8 +77,8 @@ function placeOrder() {
        window.location.href = "loginAndSign.html";
     
     else {   
-        userId = user['userId']
-    window.location.href = "order.html";
+        userId = user['userId'];
+        window.location.href = "order.html";
 }
     
 }

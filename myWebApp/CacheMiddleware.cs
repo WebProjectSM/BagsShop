@@ -14,7 +14,7 @@ namespace myWebApp
             _next = next;
         }
 
-        public  Task Invoke(HttpContext httpContext)
+        public  async Task Invoke(HttpContext httpContext)
         {
             httpContext.Response.GetTypedHeaders().CacheControl =
                new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
@@ -26,7 +26,7 @@ namespace myWebApp
             new string[] { "Accept-Encoding" };
             
 
-            return  _next(httpContext);
+            await _next(httpContext);
         }
     }
 
