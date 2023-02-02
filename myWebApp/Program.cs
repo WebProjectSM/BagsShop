@@ -24,7 +24,9 @@ builder.Services.AddScoped<ICategoryBL, CategoryBL>();
 builder.Services.AddScoped<ICategoryDL, CategoryDL>();
 builder.Services.AddScoped<IOrderBL, OrderBL>();
 builder.Services.AddScoped<IOrderDL, OrderDL>();
+builder.Services.AddTransient<IRatingBL, RatingBL>();
 builder.Services.AddTransient<IRatingDL, RatingDL>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Host.UseNLog();

@@ -1,4 +1,5 @@
-﻿using DataLayer;
+﻿using BusinessLayer;
+using DataLayer;
 using Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -10,19 +11,19 @@ namespace myWebApp
     public class RatingMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IRatingDL _ratingDL;
+        private readonly IRatingBL _ratingBL;
 
-        public RatingMiddleware(RequestDelegate next,IRatingDL ratingDL)
+        public RatingMiddleware(RequestDelegate next, IRatingBL ratingBL)
         {
             _next = next;
-            _ratingDL = ratingDL;
+            _ratingBL = ratingBL;
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
             string Referer = httpContext.Request.Headers["Referer"];
             string UserAgent = httpContext.Request.Headers["User-Agent"];
-            _ratingDL.InsertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path, Referer, UserAgent, DateTime.Now);
+            _ratingBL.InsertRatingTable(httpContext.Request.Host.ToString(), httpContext.Request.Method, httpContext.Request.Path, Referer, UserAgent, DateTime.Now);
             
 
            // Console.WriteLine(new DateTime().Date);
